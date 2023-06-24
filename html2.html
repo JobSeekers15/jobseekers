@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Links</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .job-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .job {
+      margin-bottom: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+      background-color: #f5f5f5;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s ease;
+      max-width: 600px;
+      width: 100%;
+    }
+    
+    .job:hover {
+      background-color: #eaeaea;
+    }
+    
+    .job h3 {
+      margin: 0;
+      font-size: 24px;
+    }
+    
+    .job p {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    
+    .job a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #4caf50;
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .job a:hover {
+      background-color: #45a049;
+    }
+    
+    @media (max-width: 600px) {
+      .job-container {
+        padding: 10px;
+      }
+      
+      .job {
+        margin-bottom: 10px;
+      }
+      
+      .job h3 {
+        font-size: 20px;
+      }
+      
+      .job p {
+        font-size: 14px;
+      }
+      
+      .job a {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Job Links</h1>
+  
+  <div id="jobContainer" class="job-container"></div>
+
+  <script>
+    // Define an array of job links
+    var jobLinks = [
+      {
+        title: "Job Title 1",
+        description: "Description of Job 1",
+        url: "https://job-link-1.com"
+      },
+      {
+        title: "Job Title 2",
+        description: "Description of Job 2",
+        url: "https://job-link-2.com"
+      },
+      {
+        title: "Job Title 3",
+        description: "Description of Job 3",
+        url: "https://www.instagram.com/vamshi_krishna15/"
+      }
+      // Add more job links here
+    ];
+    
+    // Function to create job link elements
+    function createJobLinkElement(job) {
+      var jobDiv = document.createElement("div");
+      jobDiv.className = "job";
+      
+      var titleHeading = document.createElement("h3");
+      titleHeading.textContent = job.title;
+      
+      var descriptionPara = document.createElement("p");
+      descriptionPara.textContent = job.description;
+      
+      var link = document.createElement("a");
+      link.href = job.url;
+      link.target = "_blank";
+      link.textContent = "Apply Now";
+      
+      jobDiv.appendChild(titleHeading);
+      jobDiv.appendChild(descriptionPara);
+      jobDiv.appendChild(link);
+      
+      return jobDiv;
+    }
+    
+    // Get the job container element
+    var jobContainer = document.getElementById("jobContainer");
+    
+    // Loop through the job links array in reverse order to display newer jobs on top
+    for (var i = jobLinks.length - 1; i >= 0; i--) {
+      var jobLinkElement = createJobLinkElement(jobLinks[i]);
+      jobContainer.appendChild(jobLinkElement);
+    }
+  </script>
+</body>
+</html>
